@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -313,19 +314,28 @@
                   </Label>
                   <ButtonBar layoutX="76.0" layoutY="744.0" prefHeight="35.0" prefWidth="382.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                     <buttons>
-                      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="127.0" text="Button">
+                      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="127.0" style="-fx-font-weight: bold;" text="Ajouter">
                            <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/add.png" />
+                                 </image></ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="19.0" text="Button">
+                        <Button mnemonicParsing="false" prefHeight="40.0" style="-fx-font-weight: bold;" text="Modifier">
                            <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/update.png" />
+                                 </image></ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" text="Button">
+                        <Button mnemonicParsing="false" prefHeight="40.0" style="-fx-font-weight: bold;" text="Supprimer">
                            <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/delete.png" />
+                                 </image></ImageView>
                            </graphic>
                         </Button>
                     </buttons>
