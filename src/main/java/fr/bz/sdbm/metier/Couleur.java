@@ -1,6 +1,6 @@
 package fr.bz.sdbm.metier;
-import lombok.*;
 
+import lombok.*;
 @Getter
 @Setter
 @ToString

@@ -2,7 +2,6 @@ package fr.bz.sdbm.dao;
 
 import fr.bz.sdbm.metier.Couleur;
 
-import javax.sql.StatementEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

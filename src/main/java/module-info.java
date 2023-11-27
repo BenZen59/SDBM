@@ -4,7 +4,7 @@ module fr.bz.sdbm {
 
     requires org.controlsfx.controls;
     requires java.sql;
-    requires lombok;
+    requires static lombok;
 
     opens fr.bz.sdbm to javafx.fxml;
     exports fr.bz.sdbm;
