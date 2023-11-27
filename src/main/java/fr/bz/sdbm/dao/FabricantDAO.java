@@ -20,7 +20,7 @@ public class FabricantDAO extends DAO<Fabriquant, Fabriquant, Integer>{
     @Override
     public ArrayList<Fabriquant> getAll() {
         ArrayList<Fabriquant> liste = new ArrayList<>();
-        String sqlRequest = "SELECT ID_FABRIQUANT, NOM_FABRIQUANT from FABRICANT";
+        String sqlRequest = "SELECT ID_FABRICANT, NOM_FABRICANT from FABRICANT";
         try (Statement statement = connexion.createStatement()) {
             ResultSet rs = statement.executeQuery(sqlRequest);
             while (rs.next()) {
