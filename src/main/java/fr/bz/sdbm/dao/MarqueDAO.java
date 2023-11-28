@@ -1,7 +1,6 @@
 package fr.bz.sdbm.dao;
 
 import fr.bz.sdbm.metier.Marque;
-import fr.bz.sdbm.metier.TypeBiere;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -30,6 +29,11 @@ public class MarqueDAO extends DAO<Marque, Marque, Integer> {
             e.printStackTrace();
         }
         return liste;
+    }
+
+    @Override
+    public ArrayList<Integer> getVolume() {
+        return null;
     }
 
     @Override

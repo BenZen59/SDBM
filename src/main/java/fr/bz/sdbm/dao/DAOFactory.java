@@ -24,4 +24,8 @@ public class DAOFactory {
     public static PaysDAO getPaysDAO(){
         return new PaysDAO();
     }
+
+    public static  ArticleDAO getArticleDAO(){
+        return new ArticleDAO();
+    }
 }

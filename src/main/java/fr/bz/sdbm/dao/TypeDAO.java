@@ -2,9 +2,7 @@ package fr.bz.sdbm.dao;
 
 import fr.bz.sdbm.metier.TypeBiere;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -29,6 +27,11 @@ public class TypeDAO extends DAO<TypeBiere,TypeBiere, Integer>{
             e.printStackTrace();
         }
         return liste;
+    }
+
+    @Override
+    public ArrayList<Integer> getVolume() {
+        return null;
     }
 
     @Override

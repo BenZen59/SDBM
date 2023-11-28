@@ -7,8 +7,14 @@ import lombok.*;
 public class Couleur {
     private int id;
     private String nomCouleur;
+
+    public Couleur() {
+
+    }
     public Couleur(int id, String nomCouleur){
         this.id = id;
         this.nomCouleur = nomCouleur;
     }
+
+
 }

@@ -1,12 +1,11 @@
 package fr.bz.sdbm;
 
-import fr.bz.sdbm.dao.CouleurDAO;
 import fr.bz.sdbm.dao.DAOFactory;
-import fr.bz.sdbm.dao.PaysDAO;
 import fr.bz.sdbm.metier.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.util.StringConverter;
 import org.controlsfx.control.SearchableComboBox;
 
@@ -25,7 +24,8 @@ public class MainController {
     private SearchableComboBox<Continent> continentSearch;
     @FXML
     private SearchableComboBox<Pays> paysSearch;
-
+    @FXML
+    private ComboBox<Integer> volumeSearch;
     public void initialize() {
         List<Couleur> allColors = DAOFactory.getCouleurDAO().getAll();
         List<TypeBiere> allTypes = DAOFactory.getTypeDAO().getAll();
@@ -33,12 +33,14 @@ public class MainController {
         List<Marque> allMarques = DAOFactory.getMarqueDAO().getAll();
         List<Continent> allContinents = DAOFactory.getContinentDAO().getAll();
         List<Pays> allPays = DAOFactory.getPaysDAO().getAll();
+        List<Integer> allVolumes = DAOFactory.getArticleDAO().getVolume();
         ObservableList<Couleur> observableColors = FXCollections.observableArrayList(allColors);
         ObservableList<TypeBiere> observableTypes = FXCollections.observableArrayList(allTypes);
         ObservableList<Fabriquant> observableFabriquants = FXCollections.observableArrayList(allFabricants);
         ObservableList<Marque> observableMarques = FXCollections.observableArrayList(allMarques);
         ObservableList<Continent> observableContinents = FXCollections.observableArrayList(allContinents);
         ObservableList<Pays> observablePays = FXCollections.observableArrayList(allPays);
+        ObservableList<Integer> observableVolume = FXCollections.observableArrayList(allVolumes);
         couleurSearch.setItems(observableColors);
         couleurSearch.setPromptText("Couleur");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
@@ -132,9 +134,23 @@ public class MainController {
             public Pays fromString(String string) {
                 // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
                 // elle n'est pas utilisée pour une SearchableComboBox.
-                return null;
-            }
+                return null;}
         });
+       volumeSearch.setItems(observableVolume);
+       volumeSearch.setPromptText("Volume");
+        // Définissez un StringConverter pour afficher seulement le nom de la couleur
+       volumeSearch.setConverter(new StringConverter<Integer>() {
+           @Override
+           public String toString(Integer integer) {
+               return (integer != null) ? integer.toString() : "";
+           }
+
+           @Override
+           public Integer fromString(String s) {
+               return null;
+           }
+
+       });
     }
 }
 

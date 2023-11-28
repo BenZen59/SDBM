@@ -1,7 +1,6 @@
 package fr.bz.sdbm.dao;
 
 import fr.bz.sdbm.metier.Pays;
-import fr.bz.sdbm.metier.TypeBiere;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -29,6 +28,11 @@ public class PaysDAO extends DAO<Pays, Pays, Integer> {
             e.printStackTrace();
         }
         return liste;
+    }
+
+    @Override
+    public ArrayList<Integer> getVolume() {
+        return null;
     }
 
     @Override

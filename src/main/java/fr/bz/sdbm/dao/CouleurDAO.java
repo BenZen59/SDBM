@@ -42,6 +42,11 @@ public class CouleurDAO extends DAO<Couleur, Couleur, Integer> {
     }
 
     @Override
+    public ArrayList<Integer> getVolume() {
+        return null;
+    }
+
+    @Override
     public ArrayList<Couleur> getLike(Couleur object) {
         String sqlCommand = "SELECT ID_COULEUR,NOM_COULEUR from COULEUR where ID_COULEUR like '%" + object.getNomCouleur() + "%'";
         ArrayList<Couleur> liste = new ArrayList<>();

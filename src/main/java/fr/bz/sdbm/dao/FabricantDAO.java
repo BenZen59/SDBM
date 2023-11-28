@@ -2,9 +2,7 @@ package fr.bz.sdbm.dao;
 
 import fr.bz.sdbm.metier.Fabriquant;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -31,6 +29,11 @@ public class FabricantDAO extends DAO<Fabriquant, Fabriquant, Integer>{
             e.printStackTrace();
         }
         return liste;
+    }
+
+    @Override
+    public ArrayList<Integer> getVolume() {
+        return null;
     }
 
     @Override
