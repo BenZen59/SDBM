@@ -30,10 +30,7 @@ public class ContinentDAO extends DAO<Continent, Continent, Integer> {
         return liste;
     }
 
-    @Override
-    public ArrayList<Integer> getVolume() {
-        return null;
-    }
+
 
     @Override
     public ArrayList<Continent> getLike(Continent object) {

@@ -32,11 +32,6 @@ public class FabricantDAO extends DAO<Fabriquant, Fabriquant, Integer>{
     }
 
     @Override
-    public ArrayList<Integer> getVolume() {
-        return null;
-    }
-
-    @Override
     public ArrayList<Fabriquant> getLike(Fabriquant object) {
         return null;
     }

@@ -53,6 +53,11 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>20.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>

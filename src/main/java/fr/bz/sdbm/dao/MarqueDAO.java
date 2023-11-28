@@ -32,11 +32,6 @@ public class MarqueDAO extends DAO<Marque, Marque, Integer> {
     }
 
     @Override
-    public ArrayList<Integer> getVolume() {
-        return null;
-    }
-
-    @Override
     public ArrayList<Marque> getLike(Marque object) {
         return null;
     }

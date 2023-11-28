@@ -30,11 +30,6 @@ public class TypeDAO extends DAO<TypeBiere,TypeBiere, Integer>{
     }
 
     @Override
-    public ArrayList<Integer> getVolume() {
-        return null;
-    }
-
-    @Override
     public ArrayList<TypeBiere> getLike(TypeBiere object) {
         return null;
     }

@@ -31,11 +31,6 @@ public class PaysDAO extends DAO<Pays, Pays, Integer> {
     }
 
     @Override
-    public ArrayList<Integer> getVolume() {
-        return null;
-    }
-
-    @Override
     public ArrayList<Pays> getLike(Pays object) {
         return null;
     }

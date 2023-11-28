@@ -42,7 +42,26 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
         return liste;
     }
 
-    @Override
+    public ArrayList<Article> getTableView() {
+        ArrayList<Article> liste = new ArrayList<>();
+        String sqlRequest = "SELECT ID_ARTICLE AS ID, NOM_ARTICLE AS 'Nom Article', VOLUME AS Volume, TITRAGE AS Titrage FROM ARTICLE";
+
+        try (Statement statement = connexion.createStatement()) {
+            ResultSet rs = statement.executeQuery(sqlRequest);
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String nomArticle = rs.getString("Nom Article");
+                int volume = rs.getInt("Volume");
+                float titrage = rs.getFloat("Titrage");
+                Article article = new Article(id, nomArticle, volume, titrage);
+                liste.add(article);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return liste;
+    }
+
     public ArrayList<Integer> getVolume() {
         ArrayList<Integer> liste = new ArrayList<>();
         String sqlRequest = "SELECT DISTINCT VOLUME FROM ARTICLE";

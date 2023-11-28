@@ -25,12 +25,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="829.0" prefWidth="716.0">
                <children>
-                  <TableView layoutX="20.0" layoutY="181.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <TableView fx:id="articleTableView" layoutX="20.0" layoutY="181.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                     <columns>
-                      <TableColumn prefWidth="93.0" text="ID" />
-                      <TableColumn prefWidth="451.0" text="Nom Article" />
-                        <TableColumn prefWidth="66.0" text="Volume" />
-                        <TableColumn prefWidth="65.0" text="Titrage" />
+                      <TableColumn fx:id="idTableColumn" prefWidth="93.0" text="ID" />
+                      <TableColumn fx:id="nomTableColumn" prefWidth="451.0" text="Nom Article" />
+                        <TableColumn fx:id="volumeTableColumn" prefWidth="66.0" text="Volume" />
+                        <TableColumn fx:id="titrageTableColumn" prefWidth="65.0" text="Titrage" />
                     </columns>
                   </TableView>
                   <GridPane layoutX="20.0" layoutY="20.0" prefHeight="161.0" prefWidth="676.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
