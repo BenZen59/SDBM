@@ -2,9 +2,8 @@ package fr.bz.sdbm;
 
 import fr.bz.sdbm.dao.CouleurDAO;
 import fr.bz.sdbm.dao.DAOFactory;
-import fr.bz.sdbm.metier.Couleur;
-import fr.bz.sdbm.metier.Fabriquant;
-import fr.bz.sdbm.metier.TypeBiere;
+import fr.bz.sdbm.dao.PaysDAO;
+import fr.bz.sdbm.metier.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,19 +13,32 @@ import org.controlsfx.control.SearchableComboBox;
 import java.util.List;
 
 public class MainController {
-@FXML
-private SearchableComboBox<Couleur> couleurSearch;
-@FXML
-private SearchableComboBox<TypeBiere> typeSearch;
-@FXML
-private SearchableComboBox<Fabriquant> fabriquantSearch;
-public void initialize(){
+    @FXML
+    private SearchableComboBox<Couleur> couleurSearch;
+    @FXML
+    private SearchableComboBox<TypeBiere> typeSearch;
+    @FXML
+    private SearchableComboBox<Fabriquant> fabriquantSearch;
+    @FXML
+    private SearchableComboBox<Marque> marqueSearch;
+    @FXML
+    private SearchableComboBox<Continent> continentSearch;
+    @FXML
+    private SearchableComboBox<Pays> paysSearch;
+
+    public void initialize() {
         List<Couleur> allColors = DAOFactory.getCouleurDAO().getAll();
         List<TypeBiere> allTypes = DAOFactory.getTypeDAO().getAll();
         List<Fabriquant> allFabricants = DAOFactory.getFabricantDAO().getAll();
+        List<Marque> allMarques = DAOFactory.getMarqueDAO().getAll();
+        List<Continent> allContinents = DAOFactory.getContinentDAO().getAll();
+        List<Pays> allPays = DAOFactory.getPaysDAO().getAll();
         ObservableList<Couleur> observableColors = FXCollections.observableArrayList(allColors);
         ObservableList<TypeBiere> observableTypes = FXCollections.observableArrayList(allTypes);
         ObservableList<Fabriquant> observableFabriquants = FXCollections.observableArrayList(allFabricants);
+        ObservableList<Marque> observableMarques = FXCollections.observableArrayList(allMarques);
+        ObservableList<Continent> observableContinents = FXCollections.observableArrayList(allContinents);
+        ObservableList<Pays> observablePays = FXCollections.observableArrayList(allPays);
         couleurSearch.setItems(observableColors);
         couleurSearch.setPromptText("Couleur");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
@@ -44,7 +56,7 @@ public void initialize(){
             }
         });
         typeSearch.setItems(observableTypes);
-       typeSearch.setPromptText("Type");
+        typeSearch.setPromptText("Type");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         typeSearch.setConverter(new StringConverter<TypeBiere>() {
             @Override
@@ -59,22 +71,70 @@ public void initialize(){
                 return null;
             }
         });
-    fabriquantSearch.setItems(observableFabriquants);
-    fabriquantSearch.setPromptText("Fabriquant");
-    // Définissez un StringConverter pour afficher seulement le nom de la couleur
-    fabriquantSearch.setConverter(new StringConverter<Fabriquant>() {
-        @Override
-        public String toString(Fabriquant fabriquant) {
-            return (fabriquant != null) ? fabriquant.getNomFabricant() : "";
-        }
+        fabriquantSearch.setItems(observableFabriquants);
+        fabriquantSearch.setPromptText("Fabriquant");
+        // Définissez un StringConverter pour afficher seulement le nom de la couleur
+        fabriquantSearch.setConverter(new StringConverter<Fabriquant>() {
+            @Override
+            public String toString(Fabriquant fabriquant) {
+                return (fabriquant != null) ? fabriquant.getNomFabricant() : "";
+            }
 
-        @Override
-        public Fabriquant fromString(String string) {
-            // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
-            // elle n'est pas utilisée pour une SearchableComboBox.
-            return null;
-        }
-    });
+            @Override
+            public Fabriquant fromString(String string) {
+                // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
+                // elle n'est pas utilisée pour une SearchableComboBox.
+                return null;
+            }
+        });
+        marqueSearch.setItems(observableMarques);
+        marqueSearch.setPromptText("Marque");
+        // Définissez un StringConverter pour afficher seulement le nom de la couleur
+        marqueSearch.setConverter(new StringConverter<Marque>() {
+            @Override
+            public String toString(Marque marque) {
+                return (marque != null) ? marque.getNomMarque() : "";
+            }
+
+            @Override
+            public Marque fromString(String string) {
+                // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
+                // elle n'est pas utilisée pour une SearchableComboBox.
+                return null;
+            }
+        });
+        continentSearch.setItems(observableContinents);
+        continentSearch.setPromptText("Continent");
+        // Définissez un StringConverter pour afficher seulement le nom de la couleur
+        continentSearch.setConverter(new StringConverter<Continent>() {
+            @Override
+            public String toString(Continent continent) {
+                return (continent != null) ? continent.getNomContinent() : "";
+            }
+
+            @Override
+            public Continent fromString(String string) {
+                // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
+                // elle n'est pas utilisée pour une SearchableComboBox.
+                return null;
+            }
+        });
+        paysSearch.setItems(observablePays);
+        paysSearch.setPromptText("Pays");
+        // Définissez un StringConverter pour afficher seulement le nom de la couleur
+        paysSearch.setConverter(new StringConverter<Pays>() {
+            @Override
+            public String toString(Pays pays) {
+                return (pays != null) ? pays.getNomPays() : "";
+            }
+
+            @Override
+            public Pays fromString(String string) {
+                // Vous pouvez implémenter cette méthode si nécessaire, mais généralement,
+                // elle n'est pas utilisée pour une SearchableComboBox.
+                return null;
+            }
+        });
     }
 }
 
