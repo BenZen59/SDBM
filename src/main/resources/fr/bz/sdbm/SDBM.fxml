@@ -21,16 +21,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.bz.sdbm.MainController">
    <children>
-      <SplitPane dividerPositions="0.5971760797342193" layoutX="-5.0" prefHeight="840.0" prefWidth="1206.0">
+      <SplitPane dividerPositions="0.5971760797342193" layoutX="-5.0" prefHeight="840.0" prefWidth="1206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="829.0" prefWidth="716.0">
                <children>
-                  <TableView fx:id="articleTableView" layoutX="20.0" layoutY="181.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                  <TableView fx:id="articleTableView" layoutX="26.0" layoutY="201.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="14.0">
                     <columns>
-                      <TableColumn fx:id="idTableColumn" prefWidth="93.0" text="ID" />
-                      <TableColumn fx:id="nomTableColumn" prefWidth="451.0" text="Nom Article" />
-                        <TableColumn fx:id="volumeTableColumn" prefWidth="66.0" text="Volume" />
-                        <TableColumn fx:id="titrageTableColumn" prefWidth="65.0" text="Titrage" />
+                      <TableColumn fx:id="idTableColumn" prefWidth="40.0" text="ID" />
+                      <TableColumn fx:id="nomTableColumn" prefWidth="509.0" text="Nom Article" />
+                        <TableColumn fx:id="volumeTableColumn" prefWidth="50.0" text="Volume" />
+                        <TableColumn fx:id="titrageTableColumn" prefWidth="50.0" text="Titrage" />
                     </columns>
                   </TableView>
                   <GridPane layoutX="20.0" layoutY="20.0" prefHeight="161.0" prefWidth="676.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -56,11 +56,6 @@
                               <Insets left="5.0" right="5.0" top="20.0" />
                            </GridPane.margin>
                         </RangeSlider>
-                        <SearchableComboBox fx:id="couleurSearch" layoutX="370.0" layoutY="20.0" promptText="Couleur" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </SearchableComboBox>
                         <SearchableComboBox fx:id="typeSearch" promptText="Type" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -91,8 +86,13 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="37.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                        <TextField onKeyPressed="#filterController" prefHeight="37.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                         <ComboBox fx:id="volumeSearch" prefHeight="34.0" prefWidth="167.0" promptText="Volume" GridPane.columnIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="couleurSearch" prefHeight="56.0" prefWidth="158.0" promptText="Couleur" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </GridPane.margin>
@@ -103,7 +103,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="798.0" prefWidth="554.0">
                <children>
-                  <GridPane layoutX="7.0" layoutY="87.0" prefHeight="708.0" prefWidth="468.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="80.0">
+                  <GridPane layoutX="50.0" layoutY="81.0" prefHeight="708.0" prefWidth="468.0" AnchorPane.bottomAnchor="149.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="81.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="86.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="221.0" />
@@ -304,7 +304,7 @@
                         </TextField>
                      </children>
                   </GridPane>
-                  <Label layoutX="202.0" layoutY="31.0" style="-fx-font-weight: bold;" text="Details" AnchorPane.bottomAnchor="772.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="31.0">
+                  <Label layoutX="202.0" layoutY="31.0" style="-fx-font-weight: bold;" text="Details" AnchorPane.bottomAnchor="772.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="31.0">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -332,7 +332,8 @@
                               <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/delete.png" />
-                                 </image></ImageView>
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                     </buttons>

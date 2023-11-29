@@ -7,5 +7,6 @@ module fr.bz.sdbm {
     requires static lombok;
 
     opens fr.bz.sdbm to javafx.fxml;
+    opens fr.bz.sdbm.metier to javafx.base;
     exports fr.bz.sdbm;
 }

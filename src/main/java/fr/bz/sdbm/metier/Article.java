@@ -1,13 +1,12 @@
 package fr.bz.sdbm.metier;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import lombok.*;
 
 @Getter
 @Setter
 @ToString
 public class Article {
-    private SimpleIntegerProperty id;
+    private int id;
     private String nomArticle;
     private float prixAchat;
     private int volume;
@@ -24,7 +23,7 @@ public class Article {
     }
 
     public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque, int stock) {
-        this.id = new SimpleIntegerProperty(id);
+        this.id = id;
         this.nomArticle = nomArticle;
         this.prixAchat = prixAchat;
         this.volume = volume;
@@ -34,7 +33,7 @@ public class Article {
     }
 
     public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque, Couleur couleur, TypeBiere typeBiere, int stock) {
-        this.id = new SimpleIntegerProperty(id);
+        this.id = id;
         this.nomArticle = nomArticle;
         this.prixAchat = prixAchat;
         this.volume = volume;
@@ -46,7 +45,7 @@ public class Article {
     }
 
     public Article(int id, String nomArticle, int volume, float titrage) {
-        this.id = new SimpleIntegerProperty(id);
+        this.id = id;
         this.nomArticle = nomArticle;
         this.volume = volume;
         this.titrage = titrage;

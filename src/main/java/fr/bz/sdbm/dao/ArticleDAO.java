@@ -25,7 +25,6 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
                 "JOIN MARQUE AS M on A.ID_MARQUE = M.ID_MARQUE\n" +
                 "LEFT JOIN COULEUR C on A.ID_COULEUR = C.ID_COULEUR\n" +
                 "LEFT JOIN TYPEBIERE T on A.ID_TYPE = T.ID_TYPE\n";
-
         try (Statement statement = connexion.createStatement()) {
             ResultSet rs = statement.executeQuery(sqlRequest);
             while (rs.next()) {
@@ -34,7 +33,7 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
                         new Marque(rs.getInt(6), rs.getString(7)),
                         new Couleur(rs.getInt(8), rs.getString(9)),
                         new TypeBiere(rs.getInt(10), rs.getString(11))
-                        ,rs.getInt(12)));
+                        , rs.getInt(12)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,12 +48,8 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
         try (Statement statement = connexion.createStatement()) {
             ResultSet rs = statement.executeQuery(sqlRequest);
             while (rs.next()) {
-                int id = rs.getInt("ID");
-                String nomArticle = rs.getString("Nom Article");
-                int volume = rs.getInt("Volume");
-                float titrage = rs.getFloat("Titrage");
-                Article article = new Article(id, nomArticle, volume, titrage);
-                liste.add(article);
+                liste.add(new Article(rs.getInt(1), rs.getString(2),
+                        rs.getInt(3), rs.getFloat(4)));
             }
         } catch (Exception e) {
             e.printStackTrace();

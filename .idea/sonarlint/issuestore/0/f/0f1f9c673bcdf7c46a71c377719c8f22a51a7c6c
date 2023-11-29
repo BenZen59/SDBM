@@ -1,0 +1,7 @@
+
+’
+java:S1319,"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™Èö¬øÿÿÿÿ8Ç›³³Á1
+N
+java:S1481",Remove this unused "couleur" local variable.(‘ÛÀ¬ûÿÿÿÿ8ÿõş†À1
+H
+java:S1168-"+Return an empty collection instead of null.(¥¹ï8ÔùÃ®Á1
