@@ -1,5 +1,6 @@
 package fr.bz.sdbm.bean;
 
+import fr.bz.sdbm.dao.DAO;
 import fr.bz.sdbm.dao.DAOFactory;
 import fr.bz.sdbm.metier.*;
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class ArticleBean {
     private ArrayList<Article> allArticles;
+    private ArrayList<Article> allDetails;
     private ArrayList<Couleur> allColors;
     private ArrayList<TypeBiere> allTypes;
     private ArrayList<Fabriquant> allFabricants;
@@ -20,7 +22,8 @@ public class ArticleBean {
     private ArrayList<Article> allNomFilter;
 
     public void init() {
-        allArticles = DAOFactory.getArticleDAO().getTableView();
+        allArticles = DAOFactory.getArticleDAO().getAll();
+        allDetails = DAOFactory.getArticleDAO().getAll();
         allColors = DAOFactory.getCouleurDAO().getAll();
         allTypes = DAOFactory.getTypeDAO().getAll();
         allFabricants = DAOFactory.getFabricantDAO().getAll();
@@ -40,6 +43,10 @@ public class ArticleBean {
 
     public ObservableList<Article> getObservableArticles() {
         return FXCollections.observableArrayList(allArticles);
+    }
+
+    public ObservableList<Article> getObservableDetailsArticles() {
+        return FXCollections.observableArrayList(allDetails);
     }
 
     public ObservableList<Couleur> getObservableColors() {

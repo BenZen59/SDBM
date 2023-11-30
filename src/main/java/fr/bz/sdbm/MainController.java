@@ -3,6 +3,7 @@ package fr.bz.sdbm;
 import fr.bz.sdbm.bean.ArticleBean;
 import fr.bz.sdbm.metier.*;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
@@ -68,9 +69,12 @@ public class MainController {
     @FXML
     private TextField detailsStock;
     private ArticleBean articleBean = new ArticleBean();
+    private ObservableList<Article> articleData;
 
     public void initialize() {
         articleBean.init();
+        ObservableList<Article> detailsArticles = articleBean.getObservableDetailsArticles();
+        articleData = (detailsArticles != null) ? observableArrayList(detailsArticles) : FXCollections.observableArrayList();
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomTableColumn.setCellValueFactory(new PropertyValueFactory<>("nomArticle"));
         volumeTableColumn.setCellValueFactory(new PropertyValueFactory<>("volume"));
@@ -78,6 +82,7 @@ public class MainController {
         articleTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         // Chargez les données depuis la base de données
         articleTableView.setItems(articleBean.getObservableArticles());
+        articleTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showArticleDetails(newValue));
         couleurSearch.setItems(articleBean.getObservableColors());
         couleurSearch.setPromptText("Couleur");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
@@ -210,6 +215,45 @@ public class MainController {
             SortedList<Article> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(articleTableView.comparatorProperty());
             articleTableView.setItems(sortedData);
+        }
+    }
+
+    private void showArticleDetails(Article article) {
+        if (article != null) {
+            // Fill the labels with info from the article object.
+            detailsId.setText(String.valueOf(article.getId()));
+            detailsNomArticle.setText(article.getNomArticle());
+            detailsPrixAchat.setText(String.valueOf(article.getPrixAchat()));
+            detailsVolume.setText(String.valueOf(article.getVolume()));
+            detailsTitrage.setText(String.valueOf(article.getTitrage()));
+            detailsMarque.setText(String.valueOf(article.getMarque()));
+            detailsFabriquant.setText(String.valueOf(article.getMarque().getFabriquant()));
+            detailsCouleur.setText(String.valueOf(article.getCouleur()));
+            detailsType.setText(String.valueOf(article.getTypeBiere()));
+            detailsPays.setText(String.valueOf(article.getMarque().getPays()));
+            detailsContinent.setText(String.valueOf(article.getMarque().getPays().getContinent()));
+            detailsStock.setText(String.valueOf(article.getStock()));
+            System.out.println("Marque: " + article.getMarque()); // Ajoutez des impressions pour débogage
+            System.out.println("Fabriquant: " + article.getMarque().getFabriquant());
+            System.out.println("Couleur: " + article.getCouleur());
+            System.out.println("Type: " + article.getTypeBiere());
+            System.out.println("Pays: " + article.getMarque().getPays());
+            System.out.println("Continent: " + article.getMarque().getPays().getContinent());
+            System.out.println("Stock: " + article.getStock());
+        } else {
+            // Article is null, remove all the text.
+            detailsId.setText("");
+            detailsNomArticle.setText("");
+            detailsPrixAchat.setText("");
+            detailsVolume.setText("");
+            detailsTitrage.setText("");
+            detailsMarque.setText("");
+            detailsFabriquant.setText("");
+            detailsCouleur.setText("");
+            detailsType.setText("");
+            detailsPays.setText("");
+            detailsContinent.setText("");
+            detailsStock.setText("");
         }
     }
 }
