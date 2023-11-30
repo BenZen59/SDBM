@@ -43,6 +43,30 @@ public class MainController {
     private TableColumn<Article, Integer> volumeTableColumn;
     @FXML
     private TableColumn<Article, Float> titrageTableColumn;
+    @FXML
+    private TextField detailsId;
+    @FXML
+    private TextField detailsNomArticle;
+    @FXML
+    private TextField detailsPrixAchat;
+    @FXML
+    private TextField detailsVolume;
+    @FXML
+    private TextField detailsTitrage;
+    @FXML
+    private TextField detailsMarque;
+    @FXML
+    private TextField detailsFabriquant;
+    @FXML
+    private TextField detailsCouleur;
+    @FXML
+    private TextField detailsType;
+    @FXML
+    private TextField detailsPays;
+    @FXML
+    private TextField detailsContinent;
+    @FXML
+    private TextField detailsStock;
     private ArticleBean articleBean = new ArticleBean();
 
     public void initialize() {

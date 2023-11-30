@@ -76,32 +76,6 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
         return liste;
     }
 
-    public ArrayList<Article> filterName(String nameInTextField) {
-        System.out.println(nameInTextField);
-        ArrayList<Article> liste = new ArrayList<>();
-        try (CallableStatement callableStatement = connexion.prepareCall("{call PS_QBE_Vue_Article(?, ?, ?, ?)}")) {
-            // Définir les paramètres de la procédure stockée
-            callableStatement.setInt(1, 0);
-            callableStatement.setString(2, "");  // @nom
-            callableStatement.setInt(3, 0);      // @volume
-            callableStatement.setFloat(4, 0.5f); // @titragemin
-            // Exécutez la procédure stockée
-            callableStatement.execute();
-
-            String sqlRequest = "SELECT ID_ARTICLE AS ID, NOM_ARTICLE AS 'Nom Article', VOLUME AS Volume, TITRAGE AS Titrage FROM VUE_ARTICLES WHERE NOM_ARTICLE LIKE ?";
-            try (PreparedStatement preparedStatement = connexion.prepareStatement(sqlRequest)) {
-                preparedStatement.setString(1, "%" + nameInTextField + "%");
-                ResultSet rs = preparedStatement.executeQuery();
-                while (rs.next()) {
-                    liste.add(new Article(rs.getInt("ID"), rs.getString("Nom Article"), rs.getInt("Volume"), rs.getFloat("Titrage")));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return liste;
-    }
-
     public ArrayList<Integer> getVolume() {
         ArrayList<Integer> liste = new ArrayList<>();
         String sqlRequest = "SELECT DISTINCT VOLUME FROM ARTICLE";
@@ -116,7 +90,6 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
         }
         return liste;
     }
-
 
     @Override
     public ArrayList<Article> getLike(ArticleSearch object) {

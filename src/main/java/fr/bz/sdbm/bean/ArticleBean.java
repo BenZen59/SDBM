@@ -30,11 +30,6 @@ public class ArticleBean {
         allVolumes = DAOFactory.getArticleDAO().getVolume();
     }
 
-    public void initFilter(String nameInTextField){
-        allNomFilter = DAOFactory.getArticleDAO().filterName(nameInTextField);
-    }
-
-
     public ObservableList<Article> getObservableNameFilter() {
         if (allNomFilter != null) {
             return FXCollections.observableArrayList(allNomFilter);
