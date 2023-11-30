@@ -43,3 +43,7 @@ Y
 )src/main/java/fr/bz/sdbm/dao/TypeDAO.java,b\1\b1cc07720a728f83f9587a0b749e861f9332cef4
 \
 ,src/main/java/fr/bz/sdbm/MainController.java,6\5\65f4a756edbc62d1aa9c71df795e67475fdb61f1
+^
+.src/main/java/fr/bz/sdbm/bean/ArticleBean.java,a\f\afe572c5716f10f8530a040eac7c1049bdc3aebe
+d
+4src/main/java/fr/bz/sdbm/bean/ArticleSearchBean.java,6\2\62bcae432a51a7fb45fbac7295f86e7543de21f8

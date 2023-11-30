@@ -25,7 +25,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="829.0" prefWidth="716.0">
                <children>
-                  <TableView fx:id="articleTableView" layoutX="26.0" layoutY="201.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="14.0">
+                  <TableView fx:id="articleTableView" layoutX="32.0" layoutY="194.0" prefHeight="608.0" prefWidth="676.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="8.0">
                     <columns>
                       <TableColumn fx:id="idTableColumn" prefWidth="40.0" text="ID" />
                       <TableColumn fx:id="nomTableColumn" prefWidth="509.0" text="Nom Article" />
@@ -76,23 +76,23 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </GridPane.margin>
                         </SearchableComboBox>
-                        <SearchableComboBox fx:id="continentSearch" promptText="Continent" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </SearchableComboBox>
                         <Label style="-fx-font-weight: bold;" text="Recherche" GridPane.halignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField onKeyPressed="#filterController" prefHeight="37.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                        <TextField fx:id="filterArticle" onKeyPressed="#filterController" prefHeight="37.0" prefWidth="132.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                         <ComboBox fx:id="volumeSearch" prefHeight="34.0" prefWidth="167.0" promptText="Volume" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </GridPane.margin>
                         </ComboBox>
                         <ComboBox fx:id="couleurSearch" prefHeight="56.0" prefWidth="158.0" promptText="Couleur" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="continentSearch" prefHeight="50.0" prefWidth="159.0" promptText="Continent" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </GridPane.margin>

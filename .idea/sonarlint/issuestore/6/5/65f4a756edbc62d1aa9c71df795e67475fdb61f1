@@ -1,5 +1,11 @@
 
-g
-java:S1854;"ERemove this useless assignment to local variable "observableArticle".(âÚ’âÿÿÿÿÿ8·‘õ³Á1
+O
+java:S1602®",Remove useless curly braces around statement(¢ô²ğùÿÿÿÿ8õ«íäÁ1
 X
-java:S1481;"6Remove this unused "observableArticle" local variable.(âÚ’âÿÿÿÿÿ8º‘õ³Á1
+java:S1128"6Remove this unused import 'fr.bz.sdbm.dao.DAOFactory'.(§ê²ûÿÿÿÿ8ü«íäÁ1
+Z
+java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8ı«íäÁ1
+`
+java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8ı«íäÁ1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ş«íäÁ1

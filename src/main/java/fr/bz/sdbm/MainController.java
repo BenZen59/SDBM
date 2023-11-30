@@ -1,10 +1,10 @@
 package fr.bz.sdbm;
 
-import fr.bz.sdbm.bean.ArticleSearchBean;
-import fr.bz.sdbm.dao.DAOFactory;
+import fr.bz.sdbm.bean.ArticleBean;
 import fr.bz.sdbm.metier.*;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.StringConverter;
 import org.controlsfx.control.SearchableComboBox;
 
-import java.util.List;
+import static javafx.collections.FXCollections.observableArrayList;
 
 public class MainController {
     @FXML
@@ -28,7 +28,7 @@ public class MainController {
     @FXML
     private SearchableComboBox<Marque> marqueSearch;
     @FXML
-    private SearchableComboBox<Continent> continentSearch;
+    private ComboBox<Continent> continentSearch;
     @FXML
     private SearchableComboBox<Pays> paysSearch;
     @FXML
@@ -43,19 +43,18 @@ public class MainController {
     private TableColumn<Article, Integer> volumeTableColumn;
     @FXML
     private TableColumn<Article, Float> titrageTableColumn;
+    private ArticleBean articleBean = new ArticleBean();
 
     public void initialize() {
-        ArticleSearchBean articleSearchBean = new ArticleSearchBean();
-        articleSearchBean.init();
-        filterArticle = new TextField();
+        articleBean.init();
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomTableColumn.setCellValueFactory(new PropertyValueFactory<>("nomArticle"));
         volumeTableColumn.setCellValueFactory(new PropertyValueFactory<>("volume"));
         titrageTableColumn.setCellValueFactory(new PropertyValueFactory<>("titrage"));
         articleTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         // Chargez les données depuis la base de données
-        articleTableView.setItems(articleSearchBean.getObservableArticles());
-        couleurSearch.setItems(articleSearchBean.getObservableColors());
+        articleTableView.setItems(articleBean.getObservableArticles());
+        couleurSearch.setItems(articleBean.getObservableColors());
         couleurSearch.setPromptText("Couleur");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         couleurSearch.setConverter(new StringConverter<Couleur>() {
@@ -71,7 +70,7 @@ public class MainController {
                 return null;
             }
         });
-        typeSearch.setItems(articleSearchBean.getObservableTypes());
+        typeSearch.setItems(articleBean.getObservableTypes());
         typeSearch.setPromptText("Type");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         typeSearch.setConverter(new StringConverter<TypeBiere>() {
@@ -87,7 +86,7 @@ public class MainController {
                 return null;
             }
         });
-        fabriquantSearch.setItems(articleSearchBean.getObservableFabriquants());
+        fabriquantSearch.setItems(articleBean.getObservableFabriquants());
         fabriquantSearch.setPromptText("Fabriquant");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         fabriquantSearch.setConverter(new StringConverter<Fabriquant>() {
@@ -103,7 +102,7 @@ public class MainController {
                 return null;
             }
         });
-        marqueSearch.setItems(articleSearchBean.getObservableMarques());
+        marqueSearch.setItems(articleBean.getObservableMarques());
         marqueSearch.setPromptText("Marque");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         marqueSearch.setConverter(new StringConverter<Marque>() {
@@ -119,7 +118,7 @@ public class MainController {
                 return null;
             }
         });
-        continentSearch.setItems(articleSearchBean.getObservableContinents());
+        continentSearch.setItems(articleBean.getObservableContinents());
         continentSearch.setPromptText("Continent");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         continentSearch.setConverter(new StringConverter<Continent>() {
@@ -135,7 +134,7 @@ public class MainController {
                 return null;
             }
         });
-        paysSearch.setItems(articleSearchBean.getObservablePays());
+        paysSearch.setItems(articleBean.getObservablePays());
         paysSearch.setPromptText("Pays");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         paysSearch.setConverter(new StringConverter<Pays>() {
@@ -151,7 +150,7 @@ public class MainController {
                 return null;
             }
         });
-        volumeSearch.setItems(articleSearchBean.getObservableVolume());
+        volumeSearch.setItems(articleBean.getObservableVolume());
         volumeSearch.setPromptText("Volume");
         // Définissez un StringConverter pour afficher seulement le nom de la couleur
         volumeSearch.setConverter(new StringConverter<Integer>() {
@@ -165,16 +164,29 @@ public class MainController {
                 return null;
             }
         });
-
     }
 
-    public void filterController(){
-        ArticleSearchBean articleSearchBean = new ArticleSearchBean();
-        articleSearchBean.init();
-        filterArticle.textProperty().addListener((observable, oldValue, newValue) -> {
-            articleSearchBean.filter(newValue);
+    public void filterController() {
+        if (articleBean != null) {
+            // Utilisez la même instance de FilteredList pour éviter de créer une nouvelle instance à chaque appel
+            FilteredList<Article> filteredData = new FilteredList<>(articleBean.getObservableArticles(), p -> true);
 
-        });
+            filterArticle.textProperty().addListener((observable, oldValue, newValue) -> {
+                articleBean.getObservableNameFilter();
+                filteredData.setPredicate(article -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    return article.getNomArticle().toLowerCase().contains(lowerCaseFilter);
+                });
+            });
+
+            // Lier la FilteredList à votre TableView
+            SortedList<Article> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(articleTableView.comparatorProperty());
+            articleTableView.setItems(sortedData);
+        }
     }
 }
 
