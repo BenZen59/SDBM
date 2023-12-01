@@ -1,11 +1,7 @@
 
-O
-java:S1602®",Remove useless curly braces around statement(¢ô²ğùÿÿÿÿ8õ«íäÁ1
-X
-java:S1128"6Remove this unused import 'fr.bz.sdbm.dao.DAOFactory'.(§ê²ûÿÿÿÿ8ü«íäÁ1
-Z
-java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8ı«íäÁ1
-`
-java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8ı«íäÁ1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ş«íäÁ1
+w
+java:S1450H"ZRemove the "articleData" field and declare it as a local variable in the relevant methods.(Ôìµ8¹ ¨…Â1
+_
+java:S1858å"A"valueOf" returns a string, there's no need to call "toString()".(ÏÉÙö8Ç“Ó†Â1
+L
+java:S1068H"/Remove this unused "articleData" private field.(Ôìµ8êÿ¦…Â1

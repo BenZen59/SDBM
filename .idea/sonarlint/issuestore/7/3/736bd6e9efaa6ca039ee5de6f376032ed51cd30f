@@ -1,9 +1,6 @@
 
-
-java:S1319-"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(«”«Ù8§òì³Á1
 ’
-java:S1319A"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™Èö¬øÿÿÿÿ8¨òì³Á1
-T
-java:S6126"2Replace this String concatenation with Text block.(ö¿šÿşÿÿÿÿ8¸òì³Á1
+java:S1319&"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(™Èö¬øÿÿÿÿ8ú¸†Â1
+X	java:S125"<This block of commented-out lines of code should be removed.(’Ï®ê8œ¬†Â1
 H
-java:S1168S"+Return an empty collection instead of null.(¥¹ï8Åòì³Á1
+java:S11687"+Return an empty collection instead of null.(¥¹ï8¹†Â1

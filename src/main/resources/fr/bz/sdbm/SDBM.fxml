@@ -120,7 +120,6 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label style="-fx-font-weight: bold;" text="ID :" GridPane.halignment="CENTER">
@@ -292,16 +291,6 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="616.0" style="-fx-font-weight: bold;" text="Stock :" GridPane.halignment="CENTER" GridPane.rowIndex="11">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="detailsStock" layoutX="159.0" layoutY="555.0" prefHeight="37.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
                      </children>
                   </GridPane>
                   <Label layoutX="202.0" layoutY="31.0" style="-fx-font-weight: bold;" text="Details" AnchorPane.bottomAnchor="772.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="31.0">

@@ -66,8 +66,6 @@ public class MainController {
     private TextField detailsPays;
     @FXML
     private TextField detailsContinent;
-    @FXML
-    private TextField detailsStock;
     private ArticleBean articleBean = new ArticleBean();
     private ObservableList<Article> articleData;
 
@@ -226,34 +224,12 @@ public class MainController {
             detailsPrixAchat.setText(String.valueOf(article.getPrixAchat()));
             detailsVolume.setText(String.valueOf(article.getVolume()));
             detailsTitrage.setText(String.valueOf(article.getTitrage()));
-            detailsMarque.setText(String.valueOf(article.getMarque()));
+            detailsMarque.setText(String.valueOf(article.getMarque()).toString());
             detailsFabriquant.setText(String.valueOf(article.getMarque().getFabriquant()));
             detailsCouleur.setText(String.valueOf(article.getCouleur()));
             detailsType.setText(String.valueOf(article.getTypeBiere()));
             detailsPays.setText(String.valueOf(article.getMarque().getPays()));
             detailsContinent.setText(String.valueOf(article.getMarque().getPays().getContinent()));
-            detailsStock.setText(String.valueOf(article.getStock()));
-            System.out.println("Marque: " + article.getMarque()); // Ajoutez des impressions pour débogage
-            System.out.println("Fabriquant: " + article.getMarque().getFabriquant());
-            System.out.println("Couleur: " + article.getCouleur());
-            System.out.println("Type: " + article.getTypeBiere());
-            System.out.println("Pays: " + article.getMarque().getPays());
-            System.out.println("Continent: " + article.getMarque().getPays().getContinent());
-            System.out.println("Stock: " + article.getStock());
-        } else {
-            // Article is null, remove all the text.
-            detailsId.setText("");
-            detailsNomArticle.setText("");
-            detailsPrixAchat.setText("");
-            detailsVolume.setText("");
-            detailsTitrage.setText("");
-            detailsMarque.setText("");
-            detailsFabriquant.setText("");
-            detailsCouleur.setText("");
-            detailsType.setText("");
-            detailsPays.setText("");
-            detailsContinent.setText("");
-            detailsStock.setText("");
         }
     }
 }

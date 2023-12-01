@@ -3,7 +3,6 @@ package fr.bz.sdbm.metier;
 import lombok.*;
 @Getter
 @Setter
-@ToString
 public class Marque {
     private int id;
     public String nomMarque;
@@ -27,7 +26,13 @@ public class Marque {
         this.fabriquant = fabriquant;
     }
 
+    public Marque(int anInt, String string, Fabriquant fabriquant) {
+    }
 
+    @Override
+    public String toString() {
+        return nomMarque;
+    }
 }
 
 

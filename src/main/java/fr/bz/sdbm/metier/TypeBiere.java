@@ -4,7 +4,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
+
 public class TypeBiere {
     private int id;
     private String nomType;
@@ -16,6 +16,9 @@ public class TypeBiere {
         this.id = id;
         this.nomType = nomType;
     }
-
+    @Override
+    public String toString() {
+        return nomType;
+    }
 
 }

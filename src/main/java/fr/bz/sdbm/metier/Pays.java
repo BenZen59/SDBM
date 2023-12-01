@@ -4,7 +4,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
 public class Pays {
     private int id;
     private String nomPays;
@@ -25,5 +24,8 @@ public class Pays {
         this.nomPays = nomPays;
         this.continent = continent;
     }
-
+    @Override
+    public String toString() {
+        return nomPays;
+    }
 }

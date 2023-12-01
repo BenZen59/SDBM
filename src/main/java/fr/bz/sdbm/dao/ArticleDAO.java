@@ -19,16 +19,20 @@ public class ArticleDAO extends DAO<Article, ArticleSearch, Integer> {
         try (PreparedStatement callableStatement = connexion.prepareCall("{call PS_QBE_Vue_Article}")) {
             ResultSet rs = callableStatement.executeQuery();
             while(rs.next()) {
-
-                liste.add(new Article(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getFloat(5), new Marque(rs.getInt(6), rs.getString(7)), new Couleur(rs.getInt(8), rs.getString(9)), new TypeBiere(rs.getInt(10), rs.getString(11)), rs.getInt(12)));
+                Fabriquant fabriquant = new Fabriquant(rs.getInt(8), rs.getString(9));
+                Continent continent = new Continent(rs.getInt(12), rs.getString(13));
+                Pays pays = new Pays(rs.getInt(10), rs.getString(11), continent);
+                Marque marque = new Marque(rs.getInt(6), rs.getString(7), pays,fabriquant);
+                liste.add(new Article(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getFloat(3),
+                        rs.getInt(4),
+                        rs.getFloat(5),
+                        marque,
+                        new Couleur(rs.getInt(14), rs.getString(15)),
+                        new TypeBiere(rs.getInt(16), rs.getString(17))
+                        ));
             }
-
-            /*try (Statement statement = connexion.createStatement()) {
-                ResultSet rs = statement.executeQuery("SELECT ID_ARTICLE, NOM_ARTICLE, PRIX_ACHAT, VOLUME, TITRAGE, NOM_MARQUE, NOM_FABRICANT, NOM_PAYS, NOM_CONTINENT, NOM_COULEUR, NOM_TYPE FROM VUE_ARTICLES ORDER BY ID_ARTICLE");
-                while (rs.next()) {
-                    liste.add(new Article(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getFloat(5), new Marque(rs.getInt(6), rs.getString(7)), new Couleur(rs.getInt(8), rs.getString(9)), new TypeBiere(rs.getInt(10), rs.getString(11)), rs.getInt(12)));
-                }
-            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }

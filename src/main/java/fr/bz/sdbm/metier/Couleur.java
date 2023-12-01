@@ -3,7 +3,6 @@ package fr.bz.sdbm.metier;
 import lombok.*;
 @Getter
 @Setter
-@ToString
 public class Couleur {
     private int id;
     private String nomCouleur;
@@ -15,6 +14,9 @@ public class Couleur {
         this.id = id;
         this.nomCouleur = nomCouleur;
     }
-
+    @Override
+    public String toString() {
+        return nomCouleur;
+    }
 
 }

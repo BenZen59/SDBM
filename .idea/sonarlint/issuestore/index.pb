@@ -47,3 +47,7 @@ Y
 .src/main/java/fr/bz/sdbm/bean/ArticleBean.java,a\f\afe572c5716f10f8530a040eac7c1049bdc3aebe
 d
 4src/main/java/fr/bz/sdbm/bean/ArticleSearchBean.java,6\2\62bcae432a51a7fb45fbac7295f86e7543de21f8
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e

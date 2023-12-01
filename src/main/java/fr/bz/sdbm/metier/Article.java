@@ -22,17 +22,16 @@ public class Article {
         typeBiere = new TypeBiere();
     }
 
-    public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque, int stock) {
+    public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque) {
         this.id = id;
         this.nomArticle = nomArticle;
         this.prixAchat = prixAchat;
         this.volume = volume;
         this.titrage = titrage;
         this.marque = marque;
-        this.stock = stock;
     }
 
-    public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque, Couleur couleur, TypeBiere typeBiere, int stock) {
+    public Article(int id, String nomArticle, float prixAchat, int volume, float titrage, Marque marque, Couleur couleur, TypeBiere typeBiere) {
         this.id = id;
         this.nomArticle = nomArticle;
         this.prixAchat = prixAchat;
@@ -41,7 +40,6 @@ public class Article {
         this.marque = marque;
         this.couleur = couleur;
         this.typeBiere = typeBiere;
-        this.stock = stock;
     }
 
     public Article(int id, String nomArticle, int volume, float titrage) {
